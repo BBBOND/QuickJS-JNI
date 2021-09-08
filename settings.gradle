@@ -1,0 +1,11 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven{ url 'https://maven.aliyun.com/nexus/content/repositories/google/'}
+        maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenCentral()
+    }
+}
+rootProject.name = "QJS_JNI"
+include ':app'
+include ':quickjs'
