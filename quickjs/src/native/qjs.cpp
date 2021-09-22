@@ -20,4 +20,7 @@ Java_com_bbbond_quickjs_QuickJS_version(JNIEnv *env, jobject /* this */) {
     std::string hello = CONFIG_VERSION;
     return env->NewStringUTF(hello.c_str());
 }
+
+
+
 }

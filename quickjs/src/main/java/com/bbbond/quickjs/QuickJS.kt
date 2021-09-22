@@ -1,14 +1,12 @@
-package com.bbbond.quickjs;
+package com.bbbond.quickjs
 
-public class QuickJS {
-
-    public QuickJS() {
+class QuickJS {
+    companion object {
+        init {
+            System.loadLibrary("quickjs")
+        }
     }
 
-    static {
-        System.loadLibrary("quickjs");
-    }
-
-    public native String nativeTest();
-    public native String version();
+    external fun nativeTest(): String?
+    external fun version(): String?
 }

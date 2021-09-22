@@ -1,25 +1,21 @@
-package com.bbbond.qjs_jni;
+package com.bbbond.qjs_jni
 
-import android.os.Bundle;
+import android.os.Bundle
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.bbbond.qjs_jni.databinding.ActivityMainBinding
+import com.bbbond.quickjs.QuickJS
 
-import androidx.appcompat.app.AppCompatActivity;
+class MainActivity : AppCompatActivity() {
 
-import com.bbbond.qjs_jni.databinding.ActivityMainBinding;
-import com.bbbond.quickjs.QuickJS;
+    private var binding: ActivityMainBinding? = null
 
-public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        binding.sampleText.setOnClickListener(view -> {
-            binding.sampleText.setText(new QuickJS().version());
-        });
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding!!.root)
+        binding?.sampleText?.setOnClickListener {
+            (it as TextView).text = QuickJS().version()
+        }
     }
 }
